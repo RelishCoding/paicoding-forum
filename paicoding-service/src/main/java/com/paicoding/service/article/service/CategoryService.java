@@ -10,7 +10,11 @@ import java.util.List;
 public interface CategoryService {
     /**
      * 查询所有的分类
-     * @return
      */
     List<CategoryDTO> loadAllCategories();
+
+    /**
+     * 刷新缓存
+     */
+    void refreshCache();
 }
