@@ -2,6 +2,7 @@ package com.paicoding.api.model.vo.user.dto;
 
 import com.paicoding.api.model.vo.article.dto.YearArticleDTO;
 import lombok.Data;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -9,7 +10,8 @@ import java.util.List;
  * 用户主页信息
  */
 @Data
-public class UserStatisticInfoDTO {
+@ToString(callSuper = true)
+public class UserStatisticInfoDTO extends BaseUserInfoDTO{
     //关注数
     private Integer followCount;
 
