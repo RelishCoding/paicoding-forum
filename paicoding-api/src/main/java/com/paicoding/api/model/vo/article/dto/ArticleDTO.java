@@ -1,5 +1,6 @@
 package com.paicoding.api.model.vo.article.dto;
 
+import com.paicoding.api.model.enums.SourceTypeEnum;
 import com.paicoding.api.model.vo.user.dto.ArticleFootCountDTO;
 import com.paicoding.api.model.vo.user.dto.SimpleUserInfoDTO;
 import lombok.Data;
@@ -41,8 +42,10 @@ public class ArticleDTO {
     //正文
     private String content;
 
-    //文章来源
-    //@See SourceTypeEnum
+    /**
+     * 文章来源
+     * @see SourceTypeEnum
+     */
     private String sourceType;
 
     //原文地址
