@@ -1,3 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  # Spring Boot 2.4为了提升对Kubernetes的支持 将 spring.profiles 作废了
+  # profiles:
+  #  active: dal,web,config,image
+  # 替换上面作废的spring.profiels.actice配置参数
+  config:
+    import: application-dal.yml,application-web.yml,application-config.yml,application-image.yml,application-email.yml,application-rabbitmq.yml,application-ai.yml
+
 # knife4j
 knife4j:
   enable: true
@@ -26,3 +37,12 @@ knife4j:
         api-rule-resources:
           - com.paicoding.web.front
 
+# mybatis相关统一配置
+mybatis-plus:
+  configuration:
+    # 开启下划线转驼峰
+    map-underscore-to-camel-case: true
+
+# 默认的数据库名
+database:
+  name: pai_coding
