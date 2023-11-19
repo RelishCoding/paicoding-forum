@@ -1,11 +1,13 @@
 package com.paicoding.api.model.vo.article.dto;
 
 import lombok.Data;
+import lombok.ToString;
 
 /**
  * 创作历程
  */
 @Data
+@ToString(callSuper = true)
 public class YearArticleDTO {
     //年份
     private String year;
