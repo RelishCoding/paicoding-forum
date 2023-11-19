@@ -1,6 +1,7 @@
 package com.paicoding.api.model.vo.recommend;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 
@@ -8,6 +9,7 @@ import java.util.List;
  * 侧边栏推广信息
  */
 @Data
+@Accessors(chain = true)
 public class SideBarItemDTO {
     private String title;
 
