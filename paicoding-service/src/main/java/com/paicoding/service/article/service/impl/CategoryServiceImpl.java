@@ -1,13 +1,18 @@
 package com.paicoding.service.article.service.impl;
 
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
+import com.paicoding.api.model.enums.YesOrNoEnum;
 import com.paicoding.api.model.vo.article.dto.CategoryDTO;
 import com.paicoding.service.article.conveter.ArticleConverter;
 import com.paicoding.service.article.repository.dao.CategoryDao;
 import com.paicoding.service.article.repository.entity.CategoryDO;
 import com.paicoding.service.article.service.CategoryService;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -24,6 +29,26 @@ public class CategoryServiceImpl implements CategoryService {
     private LoadingCache<Long, CategoryDTO> categoryCaches;
 
     private CategoryDao categoryDao;
+
+    public CategoryServiceImpl(CategoryDao categoryDao) {
+        this.categoryDao = categoryDao;
+    }
+
+    @PostConstruct
+    public void init() {
+        // 初始化缓存
+        categoryCaches = CacheBuilder.newBuilder().maximumSize(300)
+                .build(new CacheLoader<Long, CategoryDTO>() {
+                    @Override
+                    public CategoryDTO load(@NotNull Long categoryId) throws Exception {
+                        CategoryDO category = categoryDao.getById(categoryId);
+                        if (category == null || category.getDeleted() == YesOrNoEnum.YES.getCode()) {
+                            return CategoryDTO.EMPTY;
+                        }
+                        return new CategoryDTO(categoryId, category.getCategoryName(), category.getRank());
+                    }
+                });
+    }
 
     /**
      * 查询所有的分类
