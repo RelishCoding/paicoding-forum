@@ -1,3 +1,9 @@
+log:
+  path: logs
+
+env:
+  name: dev
+
 spring:
   thymeleaf:
     mode: HTML
