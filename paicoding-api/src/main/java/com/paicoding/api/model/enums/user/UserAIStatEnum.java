@@ -24,4 +24,13 @@ public enum UserAIStatEnum {
 
     private final Integer code;
     private final String desc;
+
+    public static UserAIStatEnum formCode(Integer code) {
+        for (UserAIStatEnum value : UserAIStatEnum.values()) {
+            if (value.getCode().equals(code)) {
+                return value;
+            }
+        }
+        return UserAIStatEnum.AUDITING;
+    }
 }
