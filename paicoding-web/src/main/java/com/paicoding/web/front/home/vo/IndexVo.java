@@ -1,6 +1,6 @@
 package com.paicoding.web.front.home.vo;
 
-import com.paicoding.api.model.vo.PageListVO;
+import com.paicoding.api.model.vo.PageListVo;
 import com.paicoding.api.model.vo.article.dto.ArticleDTO;
 import com.paicoding.api.model.vo.article.dto.CategoryDTO;
 import com.paicoding.api.model.vo.recommend.CarouselDTO;
@@ -11,7 +11,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class IndexVO {
+public class IndexVo {
     //分类列表
     private List<CategoryDTO> categories;
 
@@ -25,7 +25,7 @@ public class IndexVO {
     private List<ArticleDTO> topArticles;
 
     //文章列表
-    private PageListVO<ArticleDTO> articles;
+    private PageListVo<ArticleDTO> articles;
 
     //登录用户信息
     private UserStatisticInfoDTO user;
