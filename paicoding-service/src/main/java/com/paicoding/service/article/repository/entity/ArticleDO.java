@@ -14,6 +14,8 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @TableName("article")
 public class ArticleDO extends BaseDO {
+    private static final long serialVersionUID = 1L;
+
     //作者
     private Long userId;
 
