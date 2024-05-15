@@ -3,9 +3,13 @@ package com.paicoding.api.model.vo.recommend;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
+import java.io.Serializable;
+
 @Data
 @Accessors(chain = true)
-public class CarouselDTO {
+public class CarouselDTO implements Serializable {
+    private static final long serialVersionUID = 1048555496974144842L;
+
     //说明
     private String name;
 
