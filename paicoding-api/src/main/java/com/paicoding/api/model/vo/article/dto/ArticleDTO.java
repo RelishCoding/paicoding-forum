@@ -5,14 +5,18 @@ import com.paicoding.api.model.vo.user.dto.ArticleFootCountDTO;
 import com.paicoding.api.model.vo.user.dto.SimpleUserInfoDTO;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * 文章信息
+ * <p>
  * DTO定义返回给web前端的实体类（VO）
  */
 @Data
-public class ArticleDTO {
+public class ArticleDTO implements Serializable {
+    private static final long serialVersionUID = -793906904770296838L;
+
     private Long articleId;
 
     //文章类型，1-博文，2-问答
@@ -64,7 +68,7 @@ public class ArticleDTO {
     private Integer creamStat;
 
     //创建时间
-    private Long creatTime;
+    private Long createTime;
 
     //最后更新时间
     private Long lastUpdateTime;
