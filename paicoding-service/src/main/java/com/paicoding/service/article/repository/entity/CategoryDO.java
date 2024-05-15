@@ -13,6 +13,8 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @TableName("category")
 public class CategoryDO extends BaseDO {
+    private static final long serialVersionUID = 1L;
+
     //类目名称
     private String categoryName;
 
